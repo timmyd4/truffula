@@ -5,6 +5,12 @@ PLEASE MAKE FREQUENT COMMITS AS YOU FILL OUT THIS FILE.
 
 ## App.java
 
+- Have no idea
+
+- Looks like We have to implement something
+
+- -h shows hidden files -nc disables color for files
+
 ## ConsoleColor.java
 
 ## ColorPrinter.java / ColorPrinterTest.java
