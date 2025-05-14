@@ -13,7 +13,15 @@ PLEASE MAKE FREQUENT COMMITS AS YOU FILL OUT THIS FILE.
 
 ## ConsoleColor.java
 
+- Obstructs color? 
+
+- All setup I believe
+
+- ansi text color codes always starts with \033[0;incrementfrom30-37 reset at 0]
+
 ## ColorPrinter.java / ColorPrinterTest.java
+
+
 
 ## TruffulaOptions.java / TruffulaOptionsTest.java
 
