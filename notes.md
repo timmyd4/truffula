@@ -19,6 +19,9 @@ PLEASE MAKE FREQUENT COMMITS AS YOU FILL OUT THIS FILE.
 
 - ansi text color codes always starts with \033[0;incrementfrom30-37 reset at 0]
 
+- We define our objects and colors 
+the code provided defines a method getCode() and provides us with all the calls in english vs \033 blah blah
+
 ## ColorPrinter.java / ColorPrinterTest.java
 
 - Example code to print red text
