@@ -21,7 +21,10 @@ PLEASE MAKE FREQUENT COMMITS AS YOU FILL OUT THIS FILE.
 
 ## ColorPrinter.java / ColorPrinterTest.java
 
-
+- Example code to print red text
+ColorPrinter printer = new ColorPrinter(System.out);
+printer.setCurrentColor(ConsoleColor.RED);
+printer.println("This is red text");
 
 ## TruffulaOptions.java / TruffulaOptionsTest.java
 
