@@ -31,6 +31,10 @@ printer.println("This is red text");
 
 ## TruffulaOptions.java / TruffulaOptionsTest.java
 
+- Controller? Helps with functionality for displaying hidden files and displaying 
+-h for showing hidden files
+-nc for displaying no color to the file
+
 ## TruffulaPrinter.java / TruffulaPrinterTest.java
 
 ## AlphabeticalFileSorter.java
