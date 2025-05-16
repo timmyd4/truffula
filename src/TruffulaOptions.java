@@ -104,14 +104,26 @@ public class TruffulaOptions  {
     // TODO: Replace the below lines with your implementation
     boolean hidden = false;
     boolean color = true;
+    String tempRoot = null;
     
     for(String arg: args)
     {
-      if(arg.equals("-h")) hidden = true;
-      else if(arg.equals("-nc")) color = false;
+      if(arg.equals("-h"))
+      {
+        hidden = true;
+      }   
+      else if(arg.equals("-nc"))
+      {
+        color = false;
+      } 
+      else
+      {
+        tempRoot = arg;
+      } 
+
     }
 
-    root = null;
+    root = tempRoot;
     showHidden = hidden;
     useColor = color;
   }
