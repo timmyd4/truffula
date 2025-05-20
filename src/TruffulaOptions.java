@@ -106,8 +106,12 @@ public class TruffulaOptions  {
     boolean color = true;
     String tempRoot = null;
     
-    for(String arg: args)
+    for(int i = 0; i < args.length; i++)
     {
+
+      String arg = args[i];
+
+
       if(arg.equals("-h"))
       {
         hidden = true;
@@ -116,14 +120,27 @@ public class TruffulaOptions  {
       {
         color = false;
       } 
-      else
+      else if(i == args.length - 1)
       {
         tempRoot = arg;
       } 
-
+      else
+      {
+        throw new IllegalArgumentException("Invalid entry: " + arg);
+      }
     }
 
-    root = tempRoot;
+    File path = new File(tempRoot);
+    if(!path.exists())
+    {
+      throw new FileNotFoundException("Directory not available: " + tempRoot);
+    }
+    if(!path.isDirectory())
+    {
+      throw new FileNotFoundException("Path not a directory: " + tempRoot);
+    }
+
+    root = new File(tempRoot);
     showHidden = hidden;
     useColor = color;
   }

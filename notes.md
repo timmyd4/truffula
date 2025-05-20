@@ -35,6 +35,10 @@ printer.println("This is red text");
 -h for showing hidden files
 -nc for displaying no color to the file
 
+- 3 Constant variables to be worked with at declared at the top of the file
+
+- methods that could be worked with? 
+
 ## TruffulaPrinter.java / TruffulaPrinterTest.java
 
 ## AlphabeticalFileSorter.java
