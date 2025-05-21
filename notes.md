@@ -41,4 +41,6 @@ printer.println("This is red text");
 
 ## TruffulaPrinter.java / TruffulaPrinterTest.java
 
+- We have to utilize colorSequence? 
+
 ## AlphabeticalFileSorter.java

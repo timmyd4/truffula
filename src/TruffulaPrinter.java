@@ -1,3 +1,4 @@
+import java.io.File;
 import java.io.PrintStream;
 import java.util.List;
 
@@ -102,6 +103,22 @@ public class TruffulaPrinter {
    *       README.md
    *    zebra.txt
    */
+
+    //Wave 4 
+    private void printDirectoryHelper(File dir, int depth)
+    {
+      File[] files = dir.listFiles();
+
+      if(files == null) return;
+
+      for(File file: files)
+      {
+        String indented = "   ".repeat(depth);
+        String name = file.getName() + (file.isDirectory());
+      }
+    }
+
+
   public void printTree() {
     // TODO: Implement this!
     // REQUIRED: ONLY use java.io, DO NOT use java.nio
@@ -111,6 +128,16 @@ public class TruffulaPrinter {
     // - For Wave 6: Use AlphabeticalFileSorter
     // DO NOT USE SYSTEM.OUT.PRINTLN
     // USE out.println instead (will use your ColorPrinter)
+    File root = options.getRoot();
+
+    if(root == null || !root.exists()) 
+    {
+      out.println("Root was not found");
+      return;
+    }
+
+    out.println(root.getName() + "/");
+    printDirectoryHelper(root, 1);
 
     out.println("printTree was called!");
     out.println("My options are: " + options);
