@@ -149,4 +149,33 @@ public class TruffulaPrinterTest {
         // Assert that the output matches the expected output exactly
         assertEquals(expected.toString(), output);
     }
+
+
+
+    @Test
+    public void testWave4OutputWorkingCorrectly(@TempDir File tempDir) throws IOException{
+        File myFolder = new File(tempDir, "myFolder");
+        assertTrue(myFolder.mkdir(), "myFolder should be created");
+
+        // Create visible files in myFolder
+        File apple = new File(myFolder, "Apple.txt");
+        File banana = new File(myFolder, "banana.txt");
+        File zebra = new File(myFolder, "zebra.txt");
+        apple.createNewFile();
+        banana.createNewFile();
+        zebra.createNewFile();
+
+        TruffulaOptions options = new TruffulaOptions(myFolder, true, false);
+
+        ByteArrayOutputStream output = new ByteArrayOutputStream();
+        PrintStream ps = new PrintStream(output);
+        TruffulaPrinter printer = new TruffulaPrinter(options, ps);
+        printer.printTree();
+        
+        String result = output.toString();
+        
+        assertTrue(result.contains("Apple.txt"));
+        assertTrue(result.contains("banana.txt"));
+        assertTrue(result.contains("zebra.txt"));
+    }
 }
