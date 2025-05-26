@@ -178,4 +178,31 @@ public class TruffulaPrinterTest {
         assertTrue(result.contains("banana.txt"));
         assertTrue(result.contains("zebra.txt"));
     }
+
+
+    @Test
+    public void testWave5HiddenFiles(@TempDir File tempDir) throws IOException{
+        File myFolder = new File(tempDir, "myFolder");
+        assertTrue(myFolder.mkdir(), "myFolder should be created");
+
+        // Create visible files in myFolder
+        File apple = new File(myFolder, "visible.txt");
+        assertTrue(apple.createNewFile());
+        
+        createHiddenFile(myFolder, ".hidden.txt");
+        TruffulaOptions options = new TruffulaOptions(myFolder, false, false);
+
+        ByteArrayOutputStream output = new ByteArrayOutputStream();
+        PrintStream ps = new PrintStream(output);
+        TruffulaPrinter printer = new TruffulaPrinter(options, ps);
+        printer.printTree();
+        
+        String result = output.toString();
+        
+        assertTrue(result.contains("visible.txt"));
+        assertTrue(!result.contains(".hidden.txt"));
+    }
+
+
+
 }

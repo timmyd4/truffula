@@ -113,6 +113,8 @@ public class TruffulaPrinter {
 
       for(File file: files)
       {
+        if(!options.isShowHidden() && file.isHidden()) continue;
+
         String indented = "     ".repeat(depth);
         String name = file.getName() + (file.isDirectory() ? "/" : "");
         out.println(indented + name);
