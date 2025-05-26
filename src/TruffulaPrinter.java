@@ -113,7 +113,7 @@ public class TruffulaPrinter {
 
       for(File file: files)
       {
-        String indented = "   ".repeat(depth);
+        String indented = "     ".repeat(depth);
         String name = file.getName() + (file.isDirectory() ? "/" : "");
         out.println(indented + name);
         if(file.isDirectory())
@@ -134,6 +134,7 @@ public class TruffulaPrinter {
     // - For Wave 6: Use AlphabeticalFileSorter
     // DO NOT USE SYSTEM.OUT.PRINTLN
     // USE out.println instead (will use your ColorPrinter)
+    
     File root = options.getRoot(); // Returns file we will be working with
 
     if(root == null || !root.exists()) 
