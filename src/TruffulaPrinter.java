@@ -1,3 +1,4 @@
+import java.io.Console;
 import java.io.File;
 import java.io.PrintStream;
 import java.util.List;
@@ -118,6 +119,18 @@ public class TruffulaPrinter {
 
         String indented = "     ".repeat(depth);
         String name = file.getName() + (file.isDirectory() ? "/" : "");
+
+        //Wave 6
+        if(options.isUseColor())
+        {
+          ConsoleColor color = DEFAULT_COLOR_SEQUENCE.get(depth % DEFAULT_COLOR_SEQUENCE.size());
+          out.setCurrentColor(color);
+        }
+        else
+        {
+          out.setCurrentColor(ConsoleColor.WHITE);
+        }
+
         out.println(indented + name);
         if(file.isDirectory())
         {
