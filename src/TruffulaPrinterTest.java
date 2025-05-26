@@ -204,7 +204,7 @@ public class TruffulaPrinterTest {
     }
 
     @Test
-    public void testWave6ColorFiles(@TempDir File tempDir) throws IOException {
+    public void testWave6ColorFiles(@TempDir File tempDir) throws IOException{
         File root = new File(tempDir, "root");
         assertTrue(root.mkdir());
 
@@ -227,6 +227,34 @@ public class TruffulaPrinterTest {
         assertTrue(result.contains(ConsoleColor.WHITE.getCode()), "Level 0 should be white");
         assertTrue(result.contains(ConsoleColor.PURPLE.getCode()), "Level 1 should be purple");
         assertTrue(result.contains(ConsoleColor.YELLOW.getCode()), "Level 2 should be yellow");
-}
+    }
+
+    @Test
+    public void testWave7FileSort(@TempDir File tempDir) throws IOException{
+        File myFolder = new File(tempDir, "myFolder");
+        assertTrue(myFolder.mkdir(), "myFolder should be created");
+
+        // Create visible files in myFolder
+        File Apple = new File(myFolder, "Apple.txt");
+        File apple = new File(myFolder, "apple.txt");
+        File banana = new File(myFolder, "banana.txt");
+    
+        Apple.createNewFile();
+        apple.createNewFile();
+        banana.createNewFile();
+
+        TruffulaOptions options = new TruffulaOptions(myFolder, true, false);
+
+        ByteArrayOutputStream output = new ByteArrayOutputStream();
+        PrintStream ps = new PrintStream(output);
+        TruffulaPrinter printer = new TruffulaPrinter(options, ps);
+        printer.printTree();
+        
+        String result = output.toString();
+        
+        assertTrue(result.contains("Apple.txt"));
+        assertTrue(result.contains("apple.txt"));    
+        assertTrue(result.contains("banana.txt"));    
+    }
 
 }

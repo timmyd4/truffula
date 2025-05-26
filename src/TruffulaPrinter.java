@@ -112,6 +112,9 @@ public class TruffulaPrinter {
 
       if(files == null) return;
 
+      //Wave 7
+      files = AlphabeticalFileSorter.sort(files);
+
       for(File file: files)
       {
         //Wave 5
