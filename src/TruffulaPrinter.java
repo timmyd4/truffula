@@ -120,7 +120,7 @@ public class TruffulaPrinter {
         //Wave 5
         if(!options.isShowHidden() && file.isHidden()) continue;
 
-        String indented = "     ".repeat(depth);
+        String indented = "   ".repeat(depth);
         String name = file.getName() + (file.isDirectory() ? "/" : "");
 
         //Wave 6
@@ -164,8 +164,5 @@ public class TruffulaPrinter {
 
     out.println(root.getName() + "/");
     printDirectoryHelper(root, 1);
-
-    out.println("printTree was called!");
-    out.println("My options are: " + options);
   }
 }
