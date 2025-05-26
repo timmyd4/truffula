@@ -203,6 +203,30 @@ public class TruffulaPrinterTest {
         assertTrue(!result.contains(".hidden.txt"));
     }
 
+    @Test
+    public void testWave6ColorFiles(@TempDir File tempDir) throws IOException {
+        File root = new File(tempDir, "root");
+        assertTrue(root.mkdir());
 
+        File subDir1 = new File(root, "subDir1");
+        assertTrue(subDir1.mkdir());
+
+        File subDir2 = new File(subDir1, "subDir2");
+        assertTrue(subDir2.mkdir());
+
+        TruffulaOptions options = new TruffulaOptions(root, true, true); // useColor = true
+        ByteArrayOutputStream output = new ByteArrayOutputStream();
+        PrintStream ps = new PrintStream(output);
+        TruffulaPrinter printer = new TruffulaPrinter(options, ps);
+
+        printer.printTree();
+
+        String result = output.toString();
+
+        // Check colors cycle correctly: WHITE, PURPLE, YELLOW
+        assertTrue(result.contains(ConsoleColor.WHITE.getCode()), "Level 0 should be white");
+        assertTrue(result.contains(ConsoleColor.PURPLE.getCode()), "Level 1 should be purple");
+        assertTrue(result.contains(ConsoleColor.YELLOW.getCode()), "Level 2 should be yellow");
+}
 
 }
