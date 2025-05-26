@@ -113,6 +113,7 @@ public class TruffulaPrinter {
 
       for(File file: files)
       {
+        //Wave 5
         if(!options.isShowHidden() && file.isHidden()) continue;
 
         String indented = "     ".repeat(depth);
