@@ -1,4 +1,4 @@
-#Truffula
+# Truffula
 
 A fun project done in class at GRC (Green River College). This project prints a directory tree in a vertical, colorful format.
 
